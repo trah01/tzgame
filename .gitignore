@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Production / Build
+dist/
+build/
+*.lcov
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# Editor / IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+.docker/

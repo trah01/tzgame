@@ -1,0 +1,341 @@
+/* ========== Layout & Utilities ========== */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  min-height: 100vh;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.header h1 {
+  font-weight: 700;
+}
+
+.header p {
+  color: var(--text-secondary);
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.game-area {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.section-title {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.status-message {
+  text-align: center;
+  font-size: 17px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+/* ========== Apple UI Components ========== */
+
+/* Vibrant Cards */
+.apple-card {
+  background: var(--system-thick-material);
+  backdrop-filter: blur(var(--blur)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--blur)) saturate(180%);
+  border-radius: 20px; /* Non-perfect squircle via CSS standard */
+  border: var(--material-border);
+  box-shadow: var(--material-shadow);
+  padding: 24px;
+  width: 100%;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Secondary Background Cards (for less prominent items like players) */
+.chip-card {
+  background: var(--secondary-system-background);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--material-shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.chip-card.highlight {
+  border: 1px solid var(--accent);
+}
+
+.chip-card.me {
+  background: var(--bg-tertiary);
+}
+
+/* Prominent Buttons */
+.prominent-button {
+  background-color: var(--accent);
+  color: #fff; /* Always white text on Apple Accent buttons */
+  border: none;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 0.2s ease;
+}
+
+.prominent-button:active {
+  transform: scale(0.96);
+}
+
+.prominent-button.secondary {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  box-shadow: none;
+}
+
+.prominent-button.secondary:active {
+  background-color: var(--secondary-system-background);
+}
+
+/* Inputs */
+.apple-input {
+  background: var(--secondary-system-background);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 12px 16px;
+  width: 100%;
+  color: var(--text-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+  font-size: 17px;
+}
+
+.apple-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.2);
+}
+
+/* Segmented Control Alternative */
+.segmented-control {
+  display: flex;
+  background: var(--bg-tertiary);
+  border-radius: 12px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.segment-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.segment-btn.active {
+  background: var(--system-background);
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-weight: 600;
+}
+
+/* Copy/Invite Buttons */
+.copy-button {
+  background: var(--bg-tertiary);
+  border: none;
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.copy-button:hover {
+  background: var(--secondary-system-background);
+  transform: scale(1.05);
+}
+
+.copy-button:active {
+  transform: scale(0.95);
+}
+
+/* ========== Specific Game Layouts ========== */
+.lobby-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 320px;
+  width: 100%;
+}
+
+.players-scrollView {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.players-scrollView::-webkit-scrollbar {
+  height: 6px;
+}
+.players-scrollView::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 6px;
+}
+
+.chip-card {
+  min-width: 140px;
+  scroll-snap-align: start;
+}
+
+.badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--accent);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 8px;
+}
+
+.dice-container {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.dice-box {
+  width: 60px;
+  height: 60px;
+  background: var(--system-background);
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  box-shadow: var(--material-shadow-sm);
+  border: var(--material-border);
+}
+
+.dice-box.hidden {
+  color: var(--text-tertiary);
+}
+
+/* Results List */
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--secondary-system-background);
+  border-radius: 12px;
+}
+
+.result-win {
+  font-weight: 600;
+  color: #34C759; /* Apple Green */
+}
+
+.result-lose {
+  font-weight: 600;
+  color: #FF3B30; /* Apple Red */
+}
+
+/* ========== Physics Animations ========== */
+
+@keyframes springFadeIn {
+  0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+  60% { opacity: 1; transform: translateY(-4px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.fade-in-spring {
+  animation: springFadeIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes diceRoll {
+  0% { transform: translateY(0) rotate(0); }
+  30% { transform: translateY(-30px) rotate(45deg); }
+  60% { transform: translateY(10px) rotate(120deg) scale(0.9); }
+  80% { transform: translateY(-10px) rotate(160deg); }
+  100% { transform: translateY(0) rotate(180deg) scale(1); }
+}
+
+.rolling-anim .dice-box {
+  animation: diceRoll 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+/* Add delays for stagger effect */
+.rolling-anim .dice-box:nth-child(2) { animation-delay: 0.1s; }
+.rolling-anim .dice-box:nth-child(3) { animation-delay: 0.2s; }
+
+/* ========== Confetti Effects ========== */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 6px;
+  height: 14px;
+  top: -20px;
+  animation: confetti-fall 4s cubic-bezier(0.37, 0, 0.63, 1) forwards;
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(120vh) rotate(720deg); opacity: 0; }
+}

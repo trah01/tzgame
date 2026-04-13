@@ -1,0 +1,90 @@
+:root {
+  /* Default: Light Mode Tokens */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F2F2F7;
+  --bg-tertiary: #E5E5EA;
+  --accent: #007AFF;
+  --accent-active: #0056b3;
+  --text-primary: #000000;
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --text-tertiary: rgba(0, 0, 0, 0.3);
+  --blur: 20px;
+  
+  --system-background: var(--bg-primary);
+  --secondary-system-background: var(--bg-secondary);
+  --system-thick-material: rgba(255, 255, 255, 0.7);
+  --system-ultra-thin-material: rgba(255, 255, 255, 0.4);
+  
+  --material-border: 0.5px solid rgba(0, 0, 0, 0.1);
+  --material-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --material-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Mode Tokens */
+    --bg-primary: #000000;
+    --bg-secondary: #1C1C1E;
+    --bg-tertiary: #2C2C2E;
+    --accent: #0A84FF;
+    --accent-active: #0A84FF;
+    --text-primary: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.6);
+    --text-tertiary: rgba(255, 255, 255, 0.3);
+    
+    --system-background: var(--bg-primary);
+    --secondary-system-background: var(--bg-secondary);
+    --system-thick-material: rgba(40, 40, 40, 0.7);
+    --system-ultra-thin-material: rgba(20, 20, 20, 0.5);
+    
+    --material-border: 0.5px solid rgba(255, 255, 255, 0.15);
+    --material-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    --material-shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: var(--system-background);
+  color: var(--text-primary);
+  font-size: 17px;
+  line-height: 1.4;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  /* Nice dynamic background gradient mimicking Apple OS default walls */
+  background: radial-gradient(circle at top left, var(--bg-secondary), var(--bg-primary) 60%);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600; /* Semibold */
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: 34px; margin-bottom: 12px; }
+h2 { font-size: 28px; margin-bottom: 12px; }
+h3 { font-size: 22px; margin-bottom: 8px; }
+
+p {
+  font-weight: 400; /* Regular */
+  letter-spacing: 0em;
+}
+
+button, input {
+  font-family: inherit;
+  font-size: 17px;
+}
